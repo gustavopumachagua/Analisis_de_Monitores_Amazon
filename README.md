@@ -21,7 +21,7 @@
 
 El Siguiente proyectos se basa extraer los datos de la pagina web se Amazon por medio de Web Scraping.
 
-Los Datos seran de los productos de Computadoras y tablets lo encontrará [aquí](https://www.amazon.com/s?i=specialty-aps&bbn=16225007011&rh=n%3A16225007011%2Cn%3A13896617011&language=es&ref=nav_em__nav_desktop_sa_intl_computers_tablets_0_2_6_4 "Computadoras y tablets").
+Los Datos seran los Monitores de ofrece Amazon. lo encontrará [aquí](https://www.amazon.com/s?i=specialty-aps&bbn=16225007011&rh=n%3A16225007011%2Cn%3A1292115011&language=es&ref=nav_em__nav_desktop_sa_intl_monitors_0_2_6_8 "Monitores").
 
 El procedimiento para la extracción de datos para un análisis de la página web de Amazon utilizando web scraping con Beautiful Soup en Python es el siguiente:
 
@@ -69,31 +69,39 @@ Utilice bucles y la función de paginación para automatizar el proceso de extra
 
 Para hacer gráficos estadísticos para un análisis de la página web de Amazon utilizando web scraping con Python, se necesitarán extraer datos relevantes de la página web. Algunos de los datos que pueden ser relevantes para el análisis incluyen:
 
-- **Nombre del producto:**
+- **Productos:**
 
-- **Precio del producto:**
+  Nombre del producto.
 
-- **Calificación o puntuación del producto:**
+- **Precio_Nuevo:**
 
-- **Cantidad de comentarios o reseñas del producto:**
+  Precio Despues de aplicarle el descuento.
 
-- **Descripción del producto:**
+- **Precio_Antes:**
 
-- **Categoría del producto:**
+  Precio sin aplicarle el descuento.
 
-- **Marca del producto:**
+- **Stock:**
 
-- **Imágenes del producto:**
+  Cantidad de Unidades almacenada.
 
-- **Fecha de lanzamiento del producto:**
+- **Ranking:**
 
-- **Número de ventas del producto:**
+  Apreciacion de los productos el rango es [0-5]
 
-- **Palabras clave en la descripción del producto:**
+- **Votantes:**
 
-- **Detalles técnicos del producto:**
+  Cantidad de persona que dieron su apreciacion a los productos.
 
-- **ID:**
+- **Porcentaje_Ranking**
+
+  Se calcula: [(Ranking_Maximo - Ranking) / Ranking_Maximo] \* 100%
+
+  Ranking_Maximo = 5
+
+- **Descuentos**
+
+  Se calcula: [(Precio_Antes - Precio_Nuevo) / Precio_Antes] \* 100%
 
 [🔼](#análisis-de-productos-en-amazon-con-web-scraping)
 
@@ -135,29 +143,27 @@ Los nombres de columnas o variables pueden variar en diferentes conjuntos de dat
 
 ## **Estadisticas y Transformacion de los datos**
 
-- **Gráfica de barras:**
+- **Histograma de precios:**
 
-Esta gráfica puede ser útil para visualizar la frecuencia de aparición de ciertas palabras clave en las descripciones de productos en Amazon. Se puede utilizar para identificar las palabras clave más comunes que se utilizan para describir los productos.
+Puedes crear un histograma que muestre la distribución de precios de tus productos. Esto puede ayudarte a identificar el rango de precios más común y a entender cómo se comparan tus productos en términos de precio.
 
-- **Gráfica de líneas:**
+- **Gráfica de barras de descuentos:**
 
-Esta gráfica puede ser útil para visualizar la evolución de los precios de los productos a lo largo del tiempo. Se puede utilizar para identificar tendencias y patrones en los precios de los productos.
+Puedes crear una gráfica de barras que muestre la cantidad de productos que tienen diferentes niveles de descuento. Esto puede ayudarte a entender cómo los descuentos afectan las ventas de tus productos y a identificar qué productos tienen los mayores descuentos.
 
-- **Gráfica de dispersión:**
+- **Gráfica de dispersión de ranking y votos:**
 
-Esta gráfica puede ser útil para visualizar la relación entre dos variables, como el precio y la puntuación de los productos. Se puede utilizar para analizar la relación entre diferentes variables.
+Puedes crear una gráfica de dispersión que muestre el ranking de tus productos en Amazon en función del número de votantes. Esto puede ayudarte a entender la relación entre la popularidad de tus productos y su ranking en Amazon.
 
-- **Gráfica de cajas y bigotes:**
+- **Gráfica de líneas de stock:**
 
-Esta gráfica puede ser útil para visualizar la distribución de los precios de los productos en Amazon. Se puede utilizar para identificar los productos que se venden a precios más altos y más bajos, y para comparar la distribución de precios de diferentes categorías de productos.
+Puedes crear una gráfica de líneas que muestre cómo cambia el stock de tus productos con el Descuentos. Esto puede ayudarte a planificar mejor tus inventarios y a evitar quedarte sin stock de tus productos.
 
-- **Gráfica de histograma:**
+- **Gráfica de barras de porcentaje de ranking:**
 
-Esta gráfica puede ser útil para visualizar la frecuencia de precios de los productos en Amazon. Se puede utilizar para identificar la frecuencia de precios de los productos en diferentes rangos y para comparar la distribución de precios de diferentes categorías de productos.
+Puedes crear una gráfica de barras que muestre el porcentaje de productos que tienen diferentes rangos de ranking. Esto puede ayudarte a entender cómo se comparan tus productos en términos de ranking y a identificar los productos que tienen los mejores y peores rangos de ranking.
 
-- **Gráfica de pastel:**
-
-Esta gráfica puede ser útil para visualizar la proporción de diferentes categorías de productos en Amazon. Se puede utilizar para identificar las categorías de productos que son más populares y comparar la proporción de diferentes categorías de productos en Amazon.
+- **Palabras Clave**
 
 [🔼](#análisis-de-productos-en-amazon-con-web-scraping)
 
@@ -165,17 +171,49 @@ Esta gráfica puede ser útil para visualizar la proporción de diferentes categ
 
 ## **Conclusión**
 
-- **Gráfica de barras:**
+- **Histograma de precios:**
 
-- **Gráfica de líneas:**
+* La gráfica muestra la distribución de precios de productos en Amazon, comparando el precio nuevo y el precio antes de una modificación.
 
-- **Gráfica de dispersión:**
+* Podemos ver que la mayoría de los precios nuevos se encuentran entre los $20 y $40, mientras que la mayoría de los precios anteriores se encuentran entre los $40 y $60. Además, podemos notar que hay una mayor cantidad de productos con precios anteriores más altos que de productos con precios nuevos más altos.
 
-- **Gráfica de cajas y bigotes:**
+* La gráfica también muestra que algunos productos tuvieron una disminución significativa en el precio después de la modificación, mientras que otros tuvieron un aumento en el precio. En general, parece haber una tendencia a la baja en los precios después de la modificación.
 
-- **Gráfica de histograma:**
+En conclusión, esta gráfica nos permite visualizar la distribución de precios de productos en Amazon y comparar los precios antes y después de una modificación. Además, podemos observar tendencias en los cambios de precios después de la modificación.
 
-- **Gráfica de pastel:**
+- **Gráfica de barras de descuentos:**
+
+* La gráfica muestra la cantidad de productos en cada intervalo de descuento.
+
+* Podemos observar que la mayoría de los productos tienen descuentos menores del 20%, mientras que un porcentaje menor de productos tienen descuentos más altos, con una cantidad cada vez menor de productos a medida que aumenta el porcentaje de descuento.
+
+* La gráfica también nos permite comparar visualmente la cantidad de productos en cada intervalo de descuento. Podemos ver que la cantidad de productos disminuye significativamente a medida que aumenta el porcentaje de descuento.
+
+En conclusión, esta gráfica nos permite visualizar la distribución de descuentos en los productos de Amazon y ver la cantidad de productos en cada intervalo de descuento. Esto puede ser útil para comprender mejor las estrategias de precios de Amazon y cómo los consumidores pueden aprovechar los descuentos.
+
+- **Gráfica de dispersión de ranking y votos:**
+
+* La gráfica de dispersión muestra la relación entre el número de votantes y el ranking de los productos en Amazon.
+
+* Podemos observar que no hay una correlación clara entre el número de votantes y el ranking de los productos. Hay productos con muchos votantes que tienen un ranking bajo y otros con pocos votantes que tienen un ranking alto.
+
+* Esto puede indicar que otros factores, como la calidad del producto, la marca o el precio, pueden influir en el ranking de los productos en Amazon, además del número de votantes.
+
+En conclusión, esta gráfica nos muestra que no hay una relación directa entre el número de votantes y el ranking de los productos en Amazon, lo que sugiere que otros factores pueden ser importantes en la clasificación de los productos.
+
+- **Gráfica de líneas de stock:**
+
+* En esta gráfica se puede observar la relación entre el descuento y el stock de los productos. Se han representado dos líneas, una para el top 20 de productos con mayor descuento y otra para el top 10 de productos con mayor descuento.
+
+* Podemos observar que los productos con mayor descuento suelen tener menor stock disponible, lo cual es lógico ya que es probable que haya una mayor demanda de estos productos y por tanto se vendan más rápidamente. Además, podemos observar que la relación entre descuento y stock no es lineal, ya que el stock parece disminuir de forma más pronunciada en los productos con mayores descuentos.
+
+- **Gráfica de barras de porcentaje de ranking:**
+
+La gráfica muestra la distribución de la cantidad de productos que tienen un determinado porcentaje de ranking en Amazon. Se observa que la mayoría de los productos se encuentran en un rango de porcentaje de ranking entre 0% y 5%, y que a medida que el porcentaje de ranking aumenta, la cantidad de productos disminuye. Esto sugiere que es más difícil para los productos obtener un alto porcentaje de ranking en Amazon y que hay una gran cantidad de productos con bajos porcentajes de ranking.
+
+- **Palabras Claves:**
+
+Este código nos permite analizar las palabras más comunes en la descripción de los productos en el dataset. A partir de las 10 palabras más comunes, se podrían inferir posibles categorías de productos que se encuentran en el dataset. Además, si se quisiera profundizar en el análisis, se podría hacer un análisis de sentimiento de las descripciones de los productos para entender mejor cómo se presentan los productos en el mercado.
 
 [🔼](#análisis-de-productos-en-amazon-con-web-scraping)
 
